@@ -1,0 +1,6 @@
+{
+  "name": "marbella weather",
+  "dependencies": {
+    "bootstrap": "~3.3.0"
+  }
+}
