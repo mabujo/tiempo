@@ -1,6 +1,7 @@
 {
   "name": "marbella weather",
   "dependencies": {
-    "bootstrap": "~3.3.0"
+    "bootstrap": "~3.3.0",
+    "weather-icons": "~1.2.1"
   }
 }

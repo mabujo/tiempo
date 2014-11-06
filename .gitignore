@@ -2,4 +2,5 @@ composer.phar
 vendor/
 node_modules/
 bower_components
-
+cache/
+public_html/assets/fonts/

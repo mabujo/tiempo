@@ -4,6 +4,23 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
       // Task configuration
+    bowercopy: {
+		  options: {
+		    srcPrefix: 'bower_components'
+		  },
+		  scripts: {
+		    options: {
+		      destPrefix: 'public_html/assets'
+		    },
+		    files: {
+		      'fonts/WeatherIcons-Regular.otf': 'weather-icons/fonts/WeatherIcons-Regular.otf',
+		      'fonts/weathericons-regular-webfont.eot' : 'weather-icons/fonts/weathericons-regular-webfont.eot',
+		      'fonts/weathericons-regular-webfont.svg' : 'weather-icons/fonts/weathericons-regular-webfont.svg',
+		      'fonts/weathericons-regular-webfont.ttf' : 'weather-icons/fonts/weathericons-regular-webfont.ttf' ,
+		      'fonts/weathericons-regular-webfont.woff' : 'weather-icons/fonts/weathericons-regular-webfont.woff' 
+		    }
+		  }
+	},
     less: {
         development: {
             options: {
@@ -72,6 +89,7 @@ module.exports = function(grunt) {
     });
 
   // Plugin loading
+  grunt.loadNpmTasks('grunt-bowercopy');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
