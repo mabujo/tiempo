@@ -1,0 +1,3 @@
+[submodule "wunderground"]
+	path = wunderground
+	url = https://github.com/Apen/wunderground.git
