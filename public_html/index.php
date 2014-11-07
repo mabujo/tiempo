@@ -9,7 +9,7 @@ $weather = new Wunderground("bdff1e0a39d8035f", "en");
 $weather->setCacheDir(getcwd() . '/cache/');
 $weather->setCacheExpiry(200);
 
-$city = "Malaga";
+$city = "Estepona";
 $country = "Spain";
 
 // get current weather
@@ -19,6 +19,7 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 $weatherForecast = $weather->getForecast($city, $country);
 
 //var_dump($weatherCurrent);
+//var_dump($weatherForecast);
 
 //temperature
 $temp = $weatherCurrent->current_observation->temp_c;
@@ -30,8 +31,11 @@ switch ($weatherCondition) {
     case "clear":
         $weatherIcon = "wi-day-sunny";
         break;
+    case "Partly Cloudy":
+        $weatherIcon = "wi-day-sunny-overcast";
+        break;
 	default:
-		$weatherIcon = "wi-day-sunny";
+		$weatherIcon = "wi-day-cloudy";
 }
 
 ?>
