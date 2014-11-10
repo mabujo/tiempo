@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
             files: {
               //compiling frontend.less into frontend.css
-              "./public_html/assets/css/style.css":"./assets/css/main.less"
+              "./public_html/assets/css/style.css": ["./assets/css/main.less", "./bower_components/fullpage.js/jquery.fullPage.css"],
             }
         }
     },
@@ -40,6 +40,7 @@ module.exports = function(grunt) {
         src: [
           './bower_components/jquery/dist/jquery.js',
           './bower_components/bootstrap/dist/js/bootstrap.js',
+		  './bower_components/fullpage.js/jquery.fullPage.min.js',
           './assets/js/scripts.js'
         ],
         dest: './public_html/assets/js/scripts.js',
@@ -55,18 +56,13 @@ module.exports = function(grunt) {
         }
       },
     },
-    phpunit: {
-        classes: {
-        },
-        options: {
-        }
-    },
     watch: {
         js_frontend: {
           files: [
             //watched files
             './bower_components/jquery/jquery.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
+            './bower_components/jquery/dist/jquery.fullPage.min.js',
             './assets/js/scripts.js'
             ],   
           tasks: ['concat:js_frontend','uglify:frontend'],     //tasks to run
@@ -94,7 +90,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-phpunit');
 
   // Task definition
   grunt.registerTask('default', ['watch']);
