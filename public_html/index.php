@@ -2,12 +2,13 @@
 
 require '../vendor/autoload.php';
 require '../wunderground/Wunderground.php';
+require '../functions.php';
 
 $weather = new Wunderground("bdff1e0a39d8035f", "en");
 
 // cache dir
 $weather->setCacheDir(getcwd() . '/cache/');
-$weather->setCacheExpiry(200);
+$weather->setCacheExpiry(1000);
 
 $city = "Estepona";
 $country = "Spain";
@@ -27,16 +28,18 @@ $temp = $weatherCurrent->current_observation->temp_c;
 //weather condition, clear, cloudy e.t.c.
 $weatherCondition = $weatherCurrent->current_observation->weather;
 
-switch ($weatherCondition) {
-    case "clear":
-        $weatherIcon = "wi-day-sunny";
-        break;
-    case "Partly Cloudy":
-        $weatherIcon = "wi-day-sunny-overcast";
-        break;
-	default:
-		$weatherIcon = "wi-day-cloudy";
-}
+	switch ($weatherCondition) 
+	{
+	    case "clear":
+	        $weatherIcon = "wi-day-sunny";
+	        break;
+	    case "Partly Cloudy":
+	        $weatherIcon = "wi-day-sunny-overcast";
+	        break;
+		default:
+			$weatherIcon = "wi-day-cloudy";
+	}
+
 
 //slim init
 $tiempo = new \Slim\Slim(array(
@@ -56,19 +59,32 @@ $tiempo = new \Slim\Slim(array(
 		<title>Marbella Weather</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		
-		
 
 		<link rel="stylesheet" href="/assets/css/style.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
 
-	<div class="container">
-		
-		<div id="weatherIcon">
-			<i class="wi <?php echo $weatherIcon; ?>"></i>
+	<div id="fullpage">
+		<div id="firstSlide" class="section">
+			<div class="container">
+				<div id="weatherIcon">
+					<i class="wi <?php echo $weatherIcon; ?>"></i>
+				</div>
+			</div>
+		</div>
+		<div id="secondSlide" class="section">
+			<div class="container">
+				<div id="weatherIcon">
+					hello
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="container">
+				<div id="weatherIcon">
+					fatty
+				</div>
+			</div>
 		</div>
 	</div>
 	
