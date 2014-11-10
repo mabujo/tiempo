@@ -38,6 +38,12 @@ switch ($weatherCondition) {
 		$weatherIcon = "wi-day-cloudy";
 }
 
+//slim init
+$tiempo = new \Slim\Slim(array(
+	'debug' => true,
+	'log.enabled' => true
+));
+
 ?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -47,9 +53,11 @@ switch ($weatherCondition) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+		<title>Marbella Weather</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		
 
 		<link rel="stylesheet" href="/assets/css/style.css">
 
