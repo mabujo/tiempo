@@ -39,8 +39,8 @@ module.exports = function(grunt) {
       js_frontend: {
         src: [
           './bower_components/jquery/dist/jquery.js',
+          './bower_components/jquery-easing-original/jquery.easing.1.3.min.js',
           './bower_components/bootstrap/dist/js/bootstrap.js',
-		  './bower_components/fullpage.js/jquery.fullPage.min.js',
           './assets/js/scripts.js'
         ],
         dest: './public_html/assets/js/scripts.js',
@@ -62,7 +62,6 @@ module.exports = function(grunt) {
             //watched files
             './bower_components/jquery/jquery.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
-            './bower_components/jquery/dist/jquery.fullPage.min.js',
             './assets/js/scripts.js'
             ],   
           tasks: ['concat:js_frontend','uglify:frontend'],     //tasks to run

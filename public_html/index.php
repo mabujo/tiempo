@@ -68,7 +68,7 @@ $tiempo = new \Slim\Slim(array(
 		<div id="firstSlide" class="section">
 			<div class="container">
 				<div id="weatherIcon">
-					<i id="log" class="wi <?php echo $weatherIcon; ?>"></i>
+					<i class="wi <?php echo $weatherIcon; ?>"></i>
 				</div>
 			</div>
 		</div>
