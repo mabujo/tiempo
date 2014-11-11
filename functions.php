@@ -13,11 +13,9 @@
 	
 	    if ($time >= 6 && $time <= 20) 
 	    {
-			echo "day";
 			return true;
 	    }
 	    else {
-			echo "night";
 			return false;
 	    }
 	}
@@ -58,7 +56,7 @@
 			// Some rain
 			elseif($weatherCondition == "Light Rain" || $weatherCondition == "Unknown Precipitation" || stripos($weatherCondition, 'drizzle') !== false || stripos($weatherCondition, 'Rain') )
 			{
-				$weatherIcon = "wi-rain-mix"; 
+				$weatherIcon = "wi-day-rain-mix"; 
 			}
 			// Storms
 			elseif(stripos($weatherCondition, 'Thunderstorm') !== false)
@@ -89,11 +87,59 @@
 		// Nightime is better than daytime
 		else
 		{
-			
+			// Clear / unknown
+			if($weatherCondition == "Clear" || $weatherCondition == "Unkown" )
+			{
+				$weatherIcon = "wi-night-clear";
+			}
+			// Sort of cloudy
+			elseif($weatherCondition == "Partly Cloudy" || $weatherCondition == "Scattered Clouds")
+			{
+				$weatherIcon = "wi-night-cloudy";
+			}
+			// Very cloudy
+			elseif($weatherCondition == "Mostly Cloudy" || $weatherCondition == "Overcast")
+			{
+				$weatherIcon = "wi-cloudy";
+			}
+			// Lots of rain
+			elseif($weatherCondition == "Heavy Rain" || stripos($weatherCondition, 'Rain Mist') !== false)
+			{
+				$weatherIcon = "wi-rain";
+			}
+			// Some rain
+			elseif($weatherCondition == "Light Rain" || $weatherCondition == "Unknown Precipitation" || stripos($weatherCondition, 'drizzle') !== false || stripos($weatherCondition, 'Rain') )
+			{
+				$weatherIcon = "wi-night-alt-rain-mix"; 
+			}
+			// Storms
+			elseif(stripos($weatherCondition, 'Thunderstorm') !== false)
+			{
+				$weatherIcon = "wi-night-thunderstorm";
+			}
+			// Snow or ice
+			elseif(stripos($weatherCondition, 'Snow') !== false || stripos($weatherCondition, 'Ice') !== false)
+			{
+				$weatherIcon = "wi-night-alt-snow";
+			}
+			// Hail
+			elseif(stripos($weatherCondition, 'Hail') !== false)
+			{
+				$weatherIcon = "wi-night-alt-hail";
+			}
+			// Fog
+			elseif(stripos($weatherCondition, 'Fog') !== false || stripos($weatherCondition, 'Mist') !== false)
+			{
+				$weatherIcon = "wi-night-fog";
+			}
+			// Nondescript
+			else 
+			{
+				$weatherIcon = "wi-day-cloudy";
+			}	
 		}
 		
 		return $weatherIcon;
-
 	}
 
 
