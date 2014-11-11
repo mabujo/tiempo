@@ -65,7 +65,7 @@ $tiempo = new \Slim\Slim(array(
     <body>
 
 	<div id="fullpage">
-		<div id="firstSlide" class="section active">
+		<div id="firstSlide" class="section">
 			<div class="container">
 				<div id="weatherIcon">
 					<i id="log" class="wi <?php echo $weatherIcon; ?>"></i>
@@ -79,7 +79,7 @@ $tiempo = new \Slim\Slim(array(
 				</div>
 			</div>
 		</div>
-		<div class="section">
+		<div id="thirdSlide" class="section">
 			<div class="container">
 				<div id="weatherIcon">
 					fatty
