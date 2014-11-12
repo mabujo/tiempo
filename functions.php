@@ -135,10 +135,67 @@
 			// Nondescript
 			else 
 			{
-				$weatherIcon = "wi-day-cloudy";
+				$weatherIcon = "wi-night-cloudy";
 			}	
 		}
 		
+		return $weatherIcon;
+	}
+	/*
+	 * Takes the icon name from the weather provider and uses it to map to 
+	 * the icon from the icon set we are using.
+	 * 
+	 * Returns the destination iconset icon name
+	 * 
+	 */
+	function mapForecastToIcon($weatherForecast = 'clear')
+	{
+		if($weatherForecast == 'clear' || $weatherForecast == 'sunny' || $weatherForecast = 'unknown')
+		{
+			$weatherIcon = "wi-day-sunny";
+		}
+		elseif($weatherForecast == 'mostlysunny')
+		{
+			$weatherIcon = 'wi-day-sunny-overcast';
+		}
+		elseif($weatherForecast == 'partlycloudy' || $weatherForecast == 'partlysunny')
+		{
+			$weatherIcon = 'wi-day-cloudy';
+		}
+		elseif($weatherForecast == 'mostlycloudy' || $weatherForecast == 'cloudy')
+		{
+			$weatherIcon = 'wi-cloudy';
+		}
+		elseif($weatherForecast = 'chancerain')
+		{
+			$weatherIcon = 'wi-day-rain-mix';
+		}
+		elseif($weatherForecast == 'rain')
+		{
+			$weatherIcon = 'wi-rain';
+		}
+		elseif($weatherForecast == 'fog' || $weatherForecast == 'hazy')
+		{
+			$weatherIcon = 'wi-day-fog';
+		}
+		elseif($weatherForecast == 'tstorms' || $weatherForecast == 'chancetstorms')
+		{
+			$weatherIcon = 'wi-thunderstorm';
+		}
+		elseif($weatherForecast == 'sleet' || $weatherForecast == 'chancesleet')
+		{
+			$weatherIcon = 'wi-hail';
+		}
+		elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast = 'chanceflurries' )
+		{
+			$weatherIcon = 'wi-day-snow';
+		}
+		// Nondescript
+		else 
+		{
+			$weatherIcon = "wi-day-cloudy";
+		}
+
 		return $weatherIcon;
 	}
 

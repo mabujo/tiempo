@@ -27,6 +27,11 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 //get forecast
 $weatherForecast = $weather->getForecast($city, $country);
 
+var_dump($weatherForecast->forecast->simpleforecast->forecastday['1']);
+
+
+
+
 //temperature
 $temp = $weatherCurrent->current_observation->temp_c;
 
