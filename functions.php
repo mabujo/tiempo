@@ -198,6 +198,19 @@
 
 		return $weatherIcon;
 	}
+	
+	function outputForecast($forecast = '')
+	{
+		if (!empty($forecast))
+		{
+			
+		}
+		// no forecast
+		else 
+		{
+			echo "No forecast found";
+		}
+	}
 
 
 ?>

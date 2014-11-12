@@ -4,6 +4,16 @@
 
 	//make first slide active
 	$( ".section:first-of-type" ).addClass( "active" );
+	
+	$( '.slideNav li a' ).click(function() {
+	//this is not working properly yet
+		$('.active').removeClass('.active');
+		$('.active').css("margin-left: 100%;");
+		$($(this).attr('href')).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
+		
+		$($(this).attr('href')).addClass('active');
+						
+	});
 
 	$("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
 	    function(e) {

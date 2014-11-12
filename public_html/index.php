@@ -27,10 +27,16 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 //get forecast
 $weatherForecast = $weather->getForecast($city, $country);
 
-var_dump($weatherForecast->forecast->simpleforecast->forecastday['1']);
+//var_dump($weatherForecast->forecast->simpleforecast->forecastday['1']);
 
-
-
+//forecast for later
+$laterForecast = $weatherForecast->forecast->simpleforecast->forecastday['0'];
+//tomorrow's forecast
+$dayOneForecast = $weatherForecast->forecast->simpleforecast->forecastday['1'];
+//the day after tomorrow forecast
+$dayTwoForecast = $weatherForecast->forecast->simpleforecast->forecastday['2'];
+//the day after the day after...
+$dayThreeForecast = $weatherForecast->forecast->simpleforecast->forecastday['3'];
 
 //temperature
 $temp = $weatherCurrent->current_observation->temp_c;
@@ -58,26 +64,35 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
     <body>
 
 	<div id="fullpage">
-		<div id="firstSlide" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
+		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
+			<div id="header" class="container">
+				<h1>Marbella Weather</h1>
+			</div>
 			<div class="container">
-				<div id="weatherIcon">
+				<div class="weatherIcon">
 					<i class="wi <?php echo $weatherIcon; ?>"></i>
 				</div>
 				<div>
 					<?php echo $weatherCondition; ?>
 				</div>
+				<div class="nav">
+					<ul class="slideNav">
+						<li><a href="#later">later</a></li>
+						<li><a href="#tomorrow">tomorrow</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
-		<div id="secondSlide" class="section">
+		<div id="later" class="section">
 			<div class="container">
-				<div id="weatherIcon">
+				<div class="weatherIcon">
 					hello
 				</div>
 			</div>
 		</div>
-		<div id="thirdSlide" class="section">
+		<div id="tomorrow" class="section">
 			<div class="container">
-				<div id="weatherIcon">
+				<div class="weatherIcon">
 					fatty
 				</div>
 			</div>
