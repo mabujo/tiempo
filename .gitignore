@@ -5,3 +5,6 @@ bower_components
 cache/
 public_html/assets/fonts/
 public_html/cache
+assets/js/scripts.sublime-project
+assets/js/scripts.sublime-workspace
+
