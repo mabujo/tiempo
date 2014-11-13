@@ -97,8 +97,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 						<li><a href="#later">later</a></li>
 						<li><a href="#tomorrow">tomorrow</a></li>
 						            <a href="javascript:void(0)" class="btn btn-default">Default</a>
-            <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
-
+									<a href="#" class="btn btn-primary">Primary</a>
 					</ul>
 				</div>
 			</div>
