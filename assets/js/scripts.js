@@ -3,15 +3,15 @@
 	var scrollDownAmount = 0;
 
 	//make first slide active
-	$( ".section:first-of-type" ).addClass( "active" );
+	$( ".section:first-of-type" ).addClass( "activeSlide" );
 	
 	$( '.slideNav li a' ).click(function() {
 	//this is not working properly yet
-		$('.active').removeClass('.active');
-		$('.active').css("margin-left: 100%;");
+		$('.activeSlide').removeClass('.activeSlide');
+		$('.activeSlide').css("margin-left: 100%;");
 		$($(this).attr('href')).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
 		
-		$($(this).attr('href')).addClass('active');
+		$($(this).attr('href')).addClass('activeSlide');
 						
 	});
 
@@ -34,31 +34,36 @@
 
 	        if(scrollUpAmount > 5)
 	        {
-				$('.active').removeClass(function(){
-					if($(this).prev().length > 0)
+				$('.activeSlide').removeClass(function(){
+					if($(this).prev('.section').length > 0)
 					{
 						scrollUpAmount = 0;
 						scrollDownAmount = 0;
 						$(this).animate({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
-						$(this).prev().addClass('active');
-						return 'active';
+						$(this).prev().addClass('activeSlide');
+						return 'activeSlide';
 					}
 				})
 			}
 			if(scrollDownAmount > 5)
 			{
-					$('.active').removeClass(function(){
-						if($(this).next().length > 0)
+					$('.activeSlide').removeClass(function(){
+						if($(this).next('.section').length > 0)
 						{
 							scrollDownAmount = 0;
 							scrollUpAmount = 0;
 							$(this).next().animate({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
-							$(this).next().addClass('active');
-							return 'active';
+							$(this).next().addClass('activeSlide');
+							return 'activeSlide';
 						}
 					})
 
 			}
 	    }
 	});
+	
+	$(document).ready(function() {
+		$.material.init();
+	});
+
 

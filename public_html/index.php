@@ -64,10 +64,27 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
     <body>
 
 	<div id="fullpage">
-		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
-			<div id="header" class="container">
-				<h1>Marbella Weather</h1>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Marbella Weather</a>
 			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contact">Contact</a></li>
+			  </ul>
+			</div><!--/.nav-collapse -->
+		  </div>
+		</nav>
+		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
 			<div class="container">
 				<div class="weatherIcon">
 					<i class="wi <?php echo $weatherIcon; ?>"></i>
@@ -79,6 +96,9 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 					<ul class="slideNav">
 						<li><a href="#later">later</a></li>
 						<li><a href="#tomorrow">tomorrow</a></li>
+						            <a href="javascript:void(0)" class="btn btn-default">Default</a>
+            <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
+
 					</ul>
 				</div>
 			</div>

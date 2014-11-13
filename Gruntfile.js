@@ -28,7 +28,7 @@ module.exports = function(grunt) {
             },
             files: {
               //compiling frontend.less into frontend.css
-              "./public_html/assets/css/style.css": ["./assets/css/main.less", "./bower_components/fullpage.js/jquery.fullPage.css"],
+              "./public_html/assets/css/style.css": ["./assets/css/main.less"],
             }
         }
     },
@@ -41,6 +41,8 @@ module.exports = function(grunt) {
           './bower_components/jquery/dist/jquery.js',
           './bower_components/jquery-easing-original/jquery.easing.1.3.min.js',
           './bower_components/bootstrap/dist/js/bootstrap.js',
+          './bower_components/bootstrap-material-design/dist/js/ripples.min.js',
+          './bower_components/bootstrap-material-design/dist/js/material.min.js',
           './assets/js/scripts.js'
         ],
         dest: './public_html/assets/js/scripts.js',
