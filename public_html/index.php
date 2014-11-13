@@ -27,12 +27,12 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 //get forecast
 $weatherForecast = $weather->getForecast($city, $country);
 
-//var_dump($weatherForecast->forecast->simpleforecast->forecastday['1']);
+//var_dump($weatherForecast->forecast->simpleforecast->forecastday['0']);
 
 //forecast for later
 $laterForecast = $weatherForecast->forecast->simpleforecast->forecastday['0'];
 //tomorrow's forecast
-$dayOneForecast = $weatherForecast->forecast->simpleforecast->forecastday['1'];
+$tomorrowForecast = $weatherForecast->forecast->simpleforecast->forecastday['1'];
 //the day after tomorrow forecast
 $dayTwoForecast = $weatherForecast->forecast->simpleforecast->forecastday['2'];
 //the day after the day after...
@@ -62,7 +62,6 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		<link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-
 	<div id="fullpage">
 		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		  <div class="container">
@@ -86,38 +85,43 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		</nav>
 		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
 			<div class="container">
-				<div class="weatherIcon">
-					<i class="wi <?php echo $weatherIcon; ?>"></i>
-				</div>
-				<div>
-					<?php echo $weatherCondition; ?>
-				</div>
-				<div class="nav">
-					<ul class="slideNav">
-						<li><a href="#later">later</a></li>
-						<li><a href="#tomorrow">tomorrow</a></li>
-						            <a href="javascript:void(0)" class="btn btn-default">Default</a>
-									<a href="#" class="btn btn-primary">Primary</a>
-					</ul>
+				<div class="row">
+					<div class="center-block col-md-8">
+						<div class="forecastContent">
+							<div class="weatherIcon">
+								<i class="wi <?php echo $weatherIcon; ?>"></i>
+							</div>
+							<div class="weatherCondition">
+								<?php echo $weatherCondition; ?>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div id="later" class="section">
 			<div class="container">
-				<div class="weatherIcon">
-					hello
-				</div>
+				<?php outputForecast($laterForecast); ?>
 			</div>
 		</div>
 		<div id="tomorrow" class="section">
 			<div class="container">
-				<div class="weatherIcon">
-					fatty
-				</div>
+				<?php outputForecast($tomorrowForecast); ?>
 			</div>
 		</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="nav col-md-10">
+					<ul class="slideNav center-block">
+						<li><a href="#later" class="btn btn-default">later</a></li>
+						<li><a href="#tomorrow" class="btn btn-default">tomorrow</a></li>
+						<li><a href="#dayTwo" class="btn btn-default"><?php echo $dayTwoForecast->date->weekday; ?></a></li>
+						<li><a href="#dayThree" class="btn btn-default"><?php echo $dayThreeForecast->date->weekday; ?></a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 	</div>
-	
 	<script src="/assets/js/scripts.js"></script>
     </body>
 </html>

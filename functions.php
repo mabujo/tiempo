@@ -199,11 +199,23 @@
 		return $weatherIcon;
 	}
 	
+	/*
+	 * Takes in a days forecast and returns formatted html to display
+	 * 
+	 * Returns HTML string
+	 * 
+	 */
 	function outputForecast($forecast = '')
 	{
+
 		if (!empty($forecast))
 		{
-			
+			echo '	<div class="weatherIcon">
+						<i class="wi ' . mapForecastToIcon($forecast->icon) . '"></i>
+					</div>
+					<div class="weatherCondition">
+						' .  $forecast->conditions . '
+					</div>';
 		}
 		// no forecast
 		else 
