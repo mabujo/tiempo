@@ -38,13 +38,15 @@ $dayTwoForecast = $weatherForecast->forecast->simpleforecast->forecastday['2'];
 //the day after the day after...
 $dayThreeForecast = $weatherForecast->forecast->simpleforecast->forecastday['3'];
 
+//var_dump($weatherCurrent->current_observation);
+
 //temperature
-$temp = $weatherCurrent->current_observation->temp_c;
+$currentTemperature = $weatherCurrent->current_observation->temp_c;
 
 //weather condition, clear, cloudy e.t.c.
 $weatherCondition = $weatherCurrent->current_observation->weather;
 
-//setup 
+//setup
 $weatherIcon = mapWeatherToIcon($weatherCondition);
 ?>
 <!DOCTYPE html>
@@ -93,6 +95,9 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 							</div>
 							<div class="weatherCondition">
 								<?php echo $weatherCondition; ?>
+							</div>
+							<div class="currentTemperature">
+								<?php echo $currentTemperature . "°c"; ?>
 							</div>
 						</div>
 					</div>
