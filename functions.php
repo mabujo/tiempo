@@ -1,17 +1,17 @@
 <?php
-	
+
 	/*
 	 * See if it is day or night in the location while ignoring local server time.
-	 * 
+	 *
 	 * Returns boolean true if day (between 6am and 8pm), false if night.
 	 */
-	function spainIsDay() 
+	function spainIsDay()
 	{
 	    date_default_timezone_set('Europe/Madrid');
-	
+
 	    $time = date('H');
-	
-	    if ($time >= 6 && $time <= 20) 
+
+	    if ($time >= 6 && $time <= 20)
 	    {
 			return true;
 	    }
@@ -19,16 +19,16 @@
 			return false;
 	    }
 	}
-	
+
 	/*
-	 * Take the weather condition from the weather provider and map it to 
+	 * Take the weather condition from the weather provider and map it to
 	 * an icon in the Weather Icons fontset.
 	 * Takes day or night into account, setting the correct icon.
 	 * Is basically a horrorshow.
-	 * 
+	 *
 	 * Returns the icon CSS class.
 	 */
-	function mapWeatherToIcon($weatherCondition = "Clear") 
+	function mapWeatherToIcon($weatherCondition = "Clear")
 	{
 		// Daytime
 		if(spainIsDay())
@@ -49,14 +49,14 @@
 				$weatherIcon = "wi-cloudy";
 			}
 			// Lots of rain
-			elseif($weatherCondition == "Heavy Rain" || stripos($weatherCondition, 'Rain Mist') !== false)
+			elseif($weatherCondition == "Heavy Rain" || $weatherCondition == "Rain" || stripos($weatherCondition, 'Rain Mist') !== false)
 			{
 				$weatherIcon = "wi-rain";
 			}
 			// Some rain
-			elseif($weatherCondition == "Light Rain" || $weatherCondition == "Unknown Precipitation" || stripos($weatherCondition, 'drizzle') !== false || stripos($weatherCondition, 'Rain') )
+			elseif($weatherCondition == "Light Rain" || $weatherCondition == "Unknown Precipitation" || $weatherCondition == "Chance of Rain" || stripos($weatherCondition, 'drizzle') !== false || stripos($weatherCondition, 'Rain') )
 			{
-				$weatherIcon = "wi-day-rain-mix"; 
+				$weatherIcon = "wi-day-rain-mix";
 			}
 			// Storms
 			elseif(stripos($weatherCondition, 'Thunderstorm') !== false)
@@ -79,7 +79,7 @@
 				$weatherIcon = "wi-day-fog";
 			}
 			// Nondescript
-			else 
+			else
 			{
 				$weatherIcon = "wi-day-cloudy";
 			}
@@ -110,7 +110,7 @@
 			// Some rain
 			elseif($weatherCondition == "Light Rain" || $weatherCondition == "Unknown Precipitation" || stripos($weatherCondition, 'drizzle') !== false || stripos($weatherCondition, 'Rain') )
 			{
-				$weatherIcon = "wi-night-alt-rain-mix"; 
+				$weatherIcon = "wi-night-alt-rain-mix";
 			}
 			// Storms
 			elseif(stripos($weatherCondition, 'Thunderstorm') !== false)
@@ -133,24 +133,24 @@
 				$weatherIcon = "wi-night-fog";
 			}
 			// Nondescript
-			else 
+			else
 			{
 				$weatherIcon = "wi-night-cloudy";
-			}	
+			}
 		}
-		
+
 		return $weatherIcon;
 	}
 	/*
-	 * Takes the icon name from the weather provider and uses it to map to 
+	 * Takes the icon name from the weather provider and uses it to map to
 	 * the icon from the icon set we are using.
-	 * 
+	 *
 	 * Returns the destination iconset icon name
-	 * 
+	 *
 	 */
-	function mapForecastToIcon($weatherForecast = 'clear')
+	function mapForecastToIcon($weatherForecast = '')
 	{
-		if($weatherForecast == 'clear' || $weatherForecast == 'sunny' || $weatherForecast = 'unknown')
+		if($weatherForecast == 'clear' || $weatherForecast == 'sunny' || $weatherForecast == 'unknown')
 		{
 			$weatherIcon = "wi-day-sunny";
 		}
@@ -166,7 +166,7 @@
 		{
 			$weatherIcon = 'wi-cloudy';
 		}
-		elseif($weatherForecast = 'chancerain')
+		elseif($weatherForecast == 'chancerain')
 		{
 			$weatherIcon = 'wi-day-rain-mix';
 		}
@@ -186,24 +186,24 @@
 		{
 			$weatherIcon = 'wi-hail';
 		}
-		elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast = 'chanceflurries' )
+		elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast == 'chanceflurries' )
 		{
 			$weatherIcon = 'wi-day-snow';
 		}
 		// Nondescript
-		else 
+		else
 		{
 			$weatherIcon = "wi-day-cloudy";
 		}
 
 		return $weatherIcon;
 	}
-	
+
 	/*
 	 * Takes in a days forecast and returns formatted html to display
-	 * 
+	 *
 	 * Returns HTML string
-	 * 
+	 *
 	 */
 	function outputForecast($forecast = '')
 	{
@@ -218,7 +218,7 @@
 					</div>';
 		}
 		// no forecast
-		else 
+		else
 		{
 			echo "No forecast found";
 		}

@@ -4,15 +4,15 @@
 
 	//make first slide active
 	$( ".section:first-of-type" ).addClass( "activeSlide" );
-	
+
 	$( '.slideNav li a' ).click(function() {
 	//this is not working properly yet
 		$('.activeSlide').removeClass('.activeSlide');
 		$('.activeSlide').css("margin-left: 100%;");
 		$($(this).attr('href')).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
-		
+
 		$($(this).attr('href')).addClass('activeSlide');
-						
+
 	});
 
 	$("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
@@ -32,7 +32,7 @@
 	            scrollDownAmount++;
 	        }
 
-	        if(scrollUpAmount > 5)
+	        if(scrollUpAmount > 3)
 	        {
 				$('.activeSlide').removeClass(function(){
 					if($(this).prev('.section').length > 0)
@@ -45,7 +45,7 @@
 					}
 				})
 			}
-			if(scrollDownAmount > 5)
+			if(scrollDownAmount > 3)
 			{
 					$('.activeSlide').removeClass(function(){
 						if($(this).next('.section').length > 0)
@@ -61,7 +61,7 @@
 			}
 	    }
 	});
-	
+
 	$(document).ready(function() {
 		$.material.init();
 	});

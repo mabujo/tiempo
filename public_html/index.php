@@ -27,7 +27,7 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 //get forecast
 $weatherForecast = $weather->getForecast($city, $country);
 
-//var_dump($weatherForecast->forecast->simpleforecast->forecastday['0']);
+mapForecastToIcon($weatherForecast->forecast->simpleforecast->forecastday['0']->icon);
 
 //forecast for later
 $laterForecast = $weatherForecast->forecast->simpleforecast->forecastday['0'];
@@ -97,7 +97,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 								<?php echo $weatherCondition; ?>
 							</div>
 							<div class="currentTemperature">
-								<?php echo $currentTemperature . "°c"; ?>
+								<?php echo $currentTemperature . "°C"; ?>
 							</div>
 						</div>
 					</div>
@@ -114,10 +114,21 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 				<?php outputForecast($tomorrowForecast); ?>
 			</div>
 		</div>
+		<div id="dayTwo" class="section">
+			<div class="container">
+				<?php outputForecast($dayTwoForecast); ?>
+			</div>
+		</div>
+		<div id="dayThree" class="section">
+			<div class="container">
+				<?php outputForecast($dayThreeForecast); ?>
+			</div>
+		</div>
 		<footer class="footer">
 			<div class="container">
 				<div class="nav col-md-10">
 					<ul class="slideNav center-block">
+						<li><a href="http://marbellaweather.com/" class="btn btn-default">Now</a></li>
 						<li><a href="#later" class="btn btn-default">later</a></li>
 						<li><a href="#tomorrow" class="btn btn-default">tomorrow</a></li>
 						<li><a href="#dayTwo" class="btn btn-default"><?php echo $dayTwoForecast->date->weekday; ?></a></li>
