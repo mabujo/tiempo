@@ -106,23 +106,43 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		</div>
 		<div id="later" class="section">
 			<div class="container">
-				<?php outputForecast($laterForecast); ?>
+				<div class="center-block col-md-8">
+						<div class="forecastContent">
+							<?php outputForecast($laterForecast); ?>
+						</div>
+				</div>
 			</div>
+			<div class="timeLabel">Later</div>
 		</div>
 		<div id="tomorrow" class="section">
 			<div class="container">
-				<?php outputForecast($tomorrowForecast); ?>
+				<div class="center-block col-md-8">
+					<div class="forecastContent">
+							<?php outputForecast($tomorrowForecast); ?>
+					</div>
+				</div>
 			</div>
+			<div class="timeLabel">Tomorrow</div>
 		</div>
 		<div id="dayTwo" class="section">
 			<div class="container">
-				<?php outputForecast($dayTwoForecast); ?>
+				<div class="center-block col-md-8">
+					<div class="forecastContent">
+						<?php outputForecast($dayTwoForecast); ?>
+					</div>
+				</div>
 			</div>
+			<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
 		</div>
 		<div id="dayThree" class="section">
 			<div class="container">
-				<?php outputForecast($dayThreeForecast); ?>
+				<div class="center-block col-md-8">
+					<div class="forecastContent">
+						<?php outputForecast($dayThreeForecast); ?>
+					</div>
+				</div>
 			</div>
+			<div class="timeLabel"><?php echo $dayThreeForecast->date->weekday; ?></div>
 		</div>
 		<footer class="footer">
 			<div class="container">

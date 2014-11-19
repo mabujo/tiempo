@@ -37,6 +37,7 @@
 				$('.activeSlide').removeClass(function(){
 					if($(this).prev('.section').length > 0)
 					{
+						window.location.hash = $(this).prev().attr('id');
 						scrollUpAmount = 0;
 						scrollDownAmount = 0;
 						$(this).animate({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
@@ -50,6 +51,7 @@
 					$('.activeSlide').removeClass(function(){
 						if($(this).next('.section').length > 0)
 						{
+							window.location.hash = $(this).next().attr('id');
 							scrollDownAmount = 0;
 							scrollUpAmount = 0;
 							$(this).next().animate({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );

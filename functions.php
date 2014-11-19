@@ -207,7 +207,6 @@
 	 */
 	function outputForecast($forecast = '')
 	{
-
 		if (!empty($forecast))
 		{
 			echo '	<div class="weatherIcon">
@@ -215,6 +214,9 @@
 					</div>
 					<div class="weatherCondition">
 						' .  $forecast->conditions . '
+					</div>
+					<div class="forecastTemperature">
+						' .  $forecast->high->celsius .  '°C / ' . $forecast->low->celsius . '°C
 					</div>';
 		}
 		// no forecast
