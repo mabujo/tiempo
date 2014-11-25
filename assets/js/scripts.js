@@ -1,3 +1,7 @@
+$(document).ready(function() {
+
+	$.material.init();
+
 	//init scroll vars
 	var scrollUpAmount = 0;
 	var scrollDownAmount = 0;
@@ -14,7 +18,7 @@
 		$($(this).attr('href')).addClass('activeSlide');
 
 	});
-
+	
 	$("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
 	    function(e) {
 	        if (e.target.id == 'el') return;
@@ -64,8 +68,4 @@
 	    }
 	});
 
-	$(document).ready(function() {
-		$.material.init();
-	});
-
-
+});
