@@ -2,6 +2,8 @@ $(document).ready(function() {
 
 	$.material.init();
 
+	$(".forecastContent").fitText(0.9, { minFontSize: '40px'  });
+
 	//init scroll vars
 	var scrollUpAmount = 0;
 	var scrollDownAmount = 0;
@@ -9,6 +11,7 @@ $(document).ready(function() {
 	//make first slide active
 	$( ".section:first-of-type" ).addClass( "activeSlide" );
 
+	// nav buttons
 	$( '.slideNav li a' ).click(function() {
 	//this is not working properly yet
 		$('.activeSlide').removeClass('.activeSlide');
@@ -16,11 +19,25 @@ $(document).ready(function() {
 		$($(this).attr('href')).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
 
 		$($(this).attr('href')).addClass('activeSlide');
-
 	});
-	
+
 	$("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
 	    function(e) {
+
+	    	didScroll = true;
+
+	    }
+	});
+
+setInterval(function() {
+
+	// scroll already fired
+    if ( didScroll ) {
+        didScroll = false;
+
+        $("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
+	    function(e) {
+
 	        if (e.target.id == 'el') return;
 	        e.preventDefault();
 	        e.stopPropagation();
@@ -65,7 +82,10 @@ $(document).ready(function() {
 					})
 
 			}
-	    }
+		}
 	});
+	}
+
+}, 250);
 
 });

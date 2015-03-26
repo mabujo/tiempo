@@ -17,7 +17,7 @@ module.exports = function(grunt) {
 		      'fonts/weathericons-regular-webfont.eot' : 'weather-icons/fonts/weathericons-regular-webfont.eot',
 		      'fonts/weathericons-regular-webfont.svg' : 'weather-icons/fonts/weathericons-regular-webfont.svg',
 		      'fonts/weathericons-regular-webfont.ttf' : 'weather-icons/fonts/weathericons-regular-webfont.ttf' ,
-		      'fonts/weathericons-regular-webfont.woff' : 'weather-icons/fonts/weathericons-regular-webfont.woff' 
+		      'fonts/weathericons-regular-webfont.woff' : 'weather-icons/fonts/weathericons-regular-webfont.woff'
 		    }
 		  }
 	},
@@ -43,6 +43,7 @@ module.exports = function(grunt) {
           './bower_components/bootstrap/dist/js/bootstrap.js',
           './bower_components/bootstrap-material-design/dist/js/ripples.min.js',
           './bower_components/bootstrap-material-design/dist/js/material.min.js',
+          './bower_components/FitText.js/jquery.fittext.js',
           './assets/js/scripts.js'
         ],
         dest: './public_html/assets/js/scripts.js',
@@ -65,7 +66,7 @@ module.exports = function(grunt) {
             './bower_components/jquery/jquery.js',
             './bower_components/bootstrap/dist/js/bootstrap.js',
             './assets/js/scripts.js'
-            ],   
+            ],
           tasks: ['concat:js_frontend','uglify:frontend'],     //tasks to run
           options: {
             livereload: true                        //reloads the browser
