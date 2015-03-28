@@ -105,6 +105,9 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 		</div>
 		<div id="later" class="section bgNight">
+			<div id="stars"></div>
+			<div id="stars2"></div>
+			<div id="stars3"></div>
 			<div class="container">
 				<div class="center-block col-md-8">
 						<div class="forecastContent">
