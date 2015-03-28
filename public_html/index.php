@@ -38,7 +38,7 @@ $dayTwoForecast = $weatherForecast->forecast->simpleforecast->forecastday['2'];
 //the day after the day after...
 $dayThreeForecast = $weatherForecast->forecast->simpleforecast->forecastday['3'];
 
-//var_dump($weatherCurrent->current_observation);
+//var_dump($laterForecast);
 
 //temperature
 $currentTemperature = $weatherCurrent->current_observation->temp_c;
@@ -104,7 +104,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 				</div>
 			</div>
 		</div>
-		<div id="later" class="section">
+		<div id="later" class="section bgNight">
 			<div class="container">
 				<div class="center-block col-md-8">
 						<div class="forecastContent">
