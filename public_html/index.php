@@ -61,7 +61,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
         <meta name="description" content="Marbella current weather conditions and 3 day forecast">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
 	<div id="fullpage">
@@ -158,6 +158,6 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 		</footer>
 	</div>
-	<script src="/assets/js/scripts.js"></script>
+	<script src="assets/js/scripts.js"></script>
     </body>
 </html>
