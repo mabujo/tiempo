@@ -11,12 +11,16 @@ $(document).ready(function() {
 
 	// nav buttons
 	$( '.slideNav li a' ).click(function() {
-		//this is not working properly yet
-		$('.activeSlide').removeClass('.activeSlide');
-		$('.activeSlide').css("margin-left: 100%;");
-		$($(this).attr('href')).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
 
-		$($(this).attr('href')).addClass('activeSlide');
+		var	currentActive = $('#fullpage').find('.activeSlide').attr('id');
+		var nextActive = $(this).attr('href');
+
+		$("#"+currentActive).css("margin-left: +=100%;");
+		$("#"+currentActive).removeClass('activeSlide');
+
+		$(nextActive).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
+		$(nextActive).addClass('activeSlide');
+
 	});
 
 	// add stars to night slides
