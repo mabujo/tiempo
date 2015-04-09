@@ -12,13 +12,16 @@ $(document).ready(function() {
 	// nav buttons
 	$( '.slideNav li a' ).click(function() {
 
+		// current and next slide divs
 		var	currentActive = $('#fullpage').find('.activeSlide').attr('id');
 		var nextActive = $(this).attr('href');
 
+		// slide current slide left
 		$("#"+currentActive).css("margin-left: +=100%;");
 		$("#"+currentActive).removeClass('activeSlide');
 
-		$(nextActive).animate({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
+		// bring in new slide
+		$(nextActive).velocity({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
 		$(nextActive).addClass('activeSlide');
 
 	});
@@ -73,7 +76,7 @@ $(document).ready(function() {
 							window.location.hash = $(this).prev().attr('id');
 							scrollUpAmount = 0;
 							scrollDownAmount = 0;
-							$(this).animate({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
+							$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
 							$(this).prev().addClass('activeSlide');
 							return 'activeSlide';
 						}
@@ -87,7 +90,7 @@ $(document).ready(function() {
 								window.location.hash = $(this).next().attr('id');
 								scrollDownAmount = 0;
 								scrollUpAmount = 0;
-								$(this).next().animate({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
+								$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
 								$(this).next().addClass('activeSlide');
 								return 'activeSlide';
 							}

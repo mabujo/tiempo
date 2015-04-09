@@ -44,6 +44,7 @@ module.exports = function(grunt) {
           './bower_components/bootstrap-material-design/dist/js/ripples.min.js',
           './bower_components/bootstrap-material-design/dist/js/material.min.js',
           './bower_components/FitText.js/jquery.fittext.js',
+          './bower_components/velocity/velocity.min.js',
           './assets/js/scripts.js'
         ],
         dest: './public_html/assets/js/scripts.js',
