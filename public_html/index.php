@@ -124,7 +124,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel">Tomorrow</div>
 		</div>
-		<div id="dayTwo" class="section">
+		<div id="dayTwo" class="section" style="background-color:#666;">
 			<div class="container">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
@@ -134,7 +134,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
 		</div>
-		<div id="dayThree" class="section">
+		<div id="dayThree" class="section" style="background-color:#888;">
 			<div class="container">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
@@ -148,7 +148,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="container">
 				<div class="nav col-md-10">
 					<ul class="slideNav center-block">
-						<li><a href="http://marbellaweather.com/" class="btn btn-default">Now</a></li>
+						<li><a href="#now" class="btn btn-default">Now</a></li>
 						<li><a href="#later" class="btn btn-default">later</a></li>
 						<li><a href="#tomorrow" class="btn btn-default">tomorrow</a></li>
 						<li><a href="#dayTwo" class="btn btn-default"><?php echo $dayTwoForecast->date->weekday; ?></a></li>

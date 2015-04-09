@@ -6,23 +6,69 @@ $(document).ready(function() {
 	// init fitText on main forecast text
 	$(".forecastContent").fitText(0.9, { minFontSize: '40px'  });
 
-	//make first slide active
+	// make first slide active
 	$( ".section:first-of-type" ).addClass( "activeSlide" );
+
+	// array of our slides
+	var slideArray = [ "now", "later", "tomorrow", "dayTwo", "dayThree" ];
 
 	// nav buttons
 	$( '.slideNav li a' ).click(function() {
 
 		// current and next slide divs
-		var	currentActive = $('#fullpage').find('.activeSlide').attr('id');
-		var nextActive = $(this).attr('href');
+		var	currentSlide = $('#fullpage').find('.activeSlide').attr('id');
+		var clickedSlide = $(this).attr('href');
 
-		// slide current slide left
-		$("#"+currentActive).css("margin-left: +=100%;");
-		$("#"+currentActive).removeClass('activeSlide');
+		// determine current and clicked slide
+		$.each(slideArray, function( index, value ) {
 
-		// bring in new slide
-		$(nextActive).velocity({ "margin-left": "0" }, { duration: 800, easing: "easeInBack" } );
-		$(nextActive).addClass('activeSlide');
+			// current slide index and id
+ 			if (value === currentSlide)
+ 			{
+ 				currentSlideIndex = index;
+ 				currentSlideId = value;
+ 			}
+
+ 			// clicked slide index and id
+ 			if ("#" + value === clickedSlide)
+ 			{
+ 				clickedSlideIndex = index;
+ 				clickedSlideId = value;
+ 			}
+		});
+
+		// if clicked slide is to the right of current slide
+		if (clickedSlideIndex > currentSlideIndex)
+		{
+			// bring in new slide
+			$(clickedSlide).velocity({ "margin-left": "0" }, {
+				duration: 800,
+				easing: "easeInBack",
+				complete: function() {
+					// when the animation is finished,
+					// slide current slide left
+					$("#"+currentSlide).css("margin-left", "-100%");
+					$("#"+currentSlide).removeClass('activeSlide');
+				}
+			} );
+		}
+
+		// clicked slide is to the left of current slide
+		else if (currentSlideIndex > clickedSlideIndex)
+		{
+			// bring in new slide
+			$(clickedSlide).velocity({ "margin-left": "0" }, {
+				duration: 800,
+				easing: "easeInBack"
+			});
+
+			// slide current slide right
+			$("#"+currentSlide).velocity({ "margin-left": "+100%" }, { duration: 800, easing: "easeInBack"} ) ;
+			$("#"+currentSlide).removeClass('activeSlide');
+		}
+
+		// give activeSlide class to clicked slide
+		$(clickedSlide).addClass('activeSlide');
 
 	});
 
