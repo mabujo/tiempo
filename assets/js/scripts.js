@@ -67,6 +67,12 @@ $(document).ready(function() {
 			$("#"+currentSlide).removeClass('activeSlide');
 		}
 
+		// remove other active class from bottom button
+		$('.slideNav li a').removeClass('activeButton');
+
+		// make clicked slide button active
+		$( 'a[href*="' + clickedSlide + '"]' ).addClass('activeButton');
+
 		// give activeSlide class to clicked slide
 		$(clickedSlide).addClass('activeSlide');
 
