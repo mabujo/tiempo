@@ -145,8 +145,8 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="timeLabel"><?php echo $dayThreeForecast->date->weekday; ?></div>
 		</div>
 		<footer class="footer">
-			<div class="container">
-				<div class="nav col-md-10">
+
+				<div class="nav">
 					<ul class="slideNav center-block">
 						<li><a href="#now" class="btn btn-default">Now</a></li>
 						<li><a href="#later" class="btn btn-default">later</a></li>
@@ -155,7 +155,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 						<li><a href="#dayThree" class="btn btn-default"><?php echo $dayThreeForecast->date->weekday; ?></a></li>
 					</ul>
 				</div>
-			</div>
+
 		</footer>
 	</div>
 	<script src="assets/js/scripts.js"></script>

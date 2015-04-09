@@ -92,59 +92,77 @@ $(document).ready(function() {
 	setInterval(function() {
 
 		// scroll already fired
-	    if ( didScroll ) {
+	    if ( didScroll )
+	    {
 	        didScroll = false;
 
 	        // bind to scroll and swipe events
 	        $("html, body").bind({'mousewheel DOMMouseScroll onmousewheel touchmove scroll':
-		    function(e) {
+		    function(e)
+		    {
+		    	// scroll timeout (don't scroll twice too quickly)
+				clearTimeout($.data(this, 'scrollTimer'));
 
-		        if (e.target.id == 'el') return;
-		        e.preventDefault();
-		        e.stopPropagation();
-
-		        //Determine Direction
-		        if (e.originalEvent.wheelDelta && e.originalEvent.wheelDelta >= 0) {
-					scrollUpAmount++;
-
-		        } else if (e.originalEvent.detail && e.originalEvent.detail <= 0) {
-		           scrollUpAmount++;
-
-		        } else {
-		            scrollDownAmount++;
-		        }
-
-		        if(scrollUpAmount > 5)
-		        {
-					$('.activeSlide').removeClass(function(){
-						if($(this).prev('.section').length > 0)
-						{
-							window.location.hash = $(this).prev().attr('id');
-							scrollUpAmount = 0;
-							scrollDownAmount = 0;
-							$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
-							$(this).prev().addClass('activeSlide');
-							return 'activeSlide';
-						}
-					})
-				}
-				if(scrollDownAmount > 5)
+				// scroll timeout function
+				$.data(this, 'scrollTimer', setTimeout(function()
 				{
+
+					if (e.target.id == 'el') return;
+					e.preventDefault();
+					e.stopPropagation();
+
+					// determine Direction
+					// if scroll up
+					if (e.originalEvent.wheelDelta && e.originalEvent.wheelDelta >= 0) {
+						scrollUpAmount++;
+
+					// else other scroll, swipe up
+					} else if (e.originalEvent.detail && e.originalEvent.detail <= 0) {
+					   scrollUpAmount++;
+
+					// else scrolled down
+					} else {
+					    scrollDownAmount++;
+					}
+
+					// if we scrolled up
+					if(scrollUpAmount > 2)
+					{
 						$('.activeSlide').removeClass(function(){
-							if($(this).next('.section').length > 0)
+							if($(this).prev('.section').length > 0)
 							{
-								window.location.hash = $(this).next().attr('id');
-								scrollDownAmount = 0;
+								window.location.hash = $(this).prev().attr('id');
 								scrollUpAmount = 0;
-								$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
-								$(this).next().addClass('activeSlide');
+								scrollDownAmount = 0;
+								$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
+								$(this).prev().addClass('activeSlide');
 								return 'activeSlide';
 							}
 						})
+					}
 
-				}
+					// if scrolled down
+					if(scrollDownAmount > 2)
+					{
+							$('.activeSlide').removeClass(function(){
+								if($(this).next('.section').length > 0)
+								{
+									window.location.hash = $(this).next().attr('id');
+									scrollDownAmount = 0;
+									scrollUpAmount = 0;
+									$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
+									$(this).next().addClass('activeSlide');
+									return 'activeSlide';
+								}
+							})
+
+					}
+
+				}, 250));
+
 			}
-		});
+
+			});
 		}
 
 	}, 250);
