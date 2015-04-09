@@ -79,7 +79,7 @@ $(document).ready(function() {
 	});
 
 	// add stars to night slides
-	$( ".bgNight" ).append( '<div id="stars"></div><div id="stars2"></div><div id="stars3"></div>' );
+	$( ".bgNight" ).append( '<div id="stars"></div><div id="stars3"></div>' );
 
 	// init scroll vars
 	var scrollUpAmount = 0;

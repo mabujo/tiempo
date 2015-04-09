@@ -60,7 +60,6 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		<title>Marbella Weather</title>
         <meta name="description" content="Marbella current weather conditions and 3 day forecast">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
 		<link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
@@ -85,7 +84,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div><!--/.nav-collapse -->
 		  </div>
 		</nav>
-		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?>">
+		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?> <?php echo weatherGeneral($weatherIcon); ?> ">
 			<div class="container">
 				<div class="row">
 					<div class="center-block col-md-8">
@@ -104,7 +103,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 				</div>
 			</div>
 		</div>
-		<div id="later" class="section bgNight">
+		<div id="later" class="section bgNight <?php echo weatherGeneral(mapForecastToIcon($laterForecast->icon)); ?>">
 			<div class="container">
 				<div class="center-block col-md-8">
 						<div class="forecastContent">
@@ -114,7 +113,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel">Later</div>
 		</div>
-		<div id="tomorrow" class="section">
+		<div id="tomorrow" class="section <?php echo weatherGeneral(mapForecastToIcon($tomorrowForecast->icon)); ?>">
 			<div class="container">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
@@ -124,7 +123,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel">Tomorrow</div>
 		</div>
-		<div id="dayTwo" class="section" style="background-color:#666;">
+		<div id="dayTwo" class="section <?php echo weatherGeneral(mapForecastToIcon($dayTwoForecast->icon)); ?>" style="background-color:#666;">
 			<div class="container">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
@@ -134,7 +133,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
 		</div>
-		<div id="dayThree" class="section" style="background-color:#888;">
+		<div id="dayThree" class="section <?php echo weatherGeneral(mapForecastToIcon($dayThreeForecast->icon)); ?>" style="background-color:#888;">
 			<div class="container">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
