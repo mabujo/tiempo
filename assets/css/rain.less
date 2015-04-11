@@ -2,12 +2,19 @@
 
 @random100: `Math.ceil(Math.random() * 100)`;
 
-@dropColour: #fff - @random100;
+@random3: `Math.ceil(Math.random() * 3) -1`;
+
+@dropColour: #ddd - @random100;
+
+@skew: `Math.ceil(Math.random() * 10)`;
+
+@skewStart: @skew;
+@skewFinish: @skew + 10;
 
 
 .drops(@counter) when (@counter > 0) {
   .drops((@counter - 1));
-  box-shadow+: ~"@{randomNum}px" ~"@{randomNum}px" 1px @dropColour;
+  box-shadow+: ~"@{randomNum}px" ~"@{randomNum}px" ~"@{random3}px" ~"@{random3}px" @dropColour;
 }
 
 .rain { background: radial-gradient(ellipse at center top , #D6D6D6 0px, #A6A6A6 100%) }
@@ -53,7 +60,6 @@
 
 }
 
-
 #rainDrops3 {
 	-webkit-animation: 150s linear 0s normal none infinite running animRain;
 	animation: 150s linear 0s normal none infinite running animRain;
@@ -72,15 +78,17 @@
 	}
 }
 
+
+
 @-webkit-keyframes animRain {
-  0%   { transform: translateY(0px); }
-  100% { transform: translateY(2000px); }
+  0%   { transform: translateY(0px) skew(~"@{skewStart}deg"); }
+  100% { transform: translateY(2000px) skew(~"@{skewFinish}deg"); }
 }
 @keyframes animRain {
 0% {
-    transform: translateY(0px);
+    transform: translateY(0px) skew(~"@{skewStart}deg");
 }
 100% {
-    transform: translateY(2000px);
+    transform: translateY(2000px) skew(~"@{skewFinish}deg");
 }
 }
