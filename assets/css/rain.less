@@ -1,15 +1,20 @@
 @randomNum: `Math.ceil(Math.random() * 2000)`;
 
+@random100: `Math.ceil(Math.random() * 100)`;
+
+@dropColour: #fff - @random100;
+
+
 .drops(@counter) when (@counter > 0) {
   .drops((@counter - 1));
-  box-shadow+: ~"@{randomNum}px" ~"@{randomNum}px" 1px #fff;
+  box-shadow+: ~"@{randomNum}px" ~"@{randomNum}px" 1px @dropColour;
 }
 
 .rain { background: radial-gradient(ellipse at center top , #D6D6D6 0px, #A6A6A6 100%) }
 
-.smallDrops { .drops(300); }
-.mediumDrops { .drops(200); }
-.bigDrops { .drops(100); }
+.smallDrops { .drops(600); }
+.mediumDrops { .drops(400); }
+.bigDrops { .drops(200); }
 
 #rainDrops {
 	-webkit-animation: 25s linear 0s normal none infinite running animRain;
@@ -24,7 +29,7 @@
 		content: " ";
 		height: 15px;
 		position: absolute;
-		top: -1000px;
+		top: -2000px;
 		width: 1px;
     }
 }
@@ -42,7 +47,7 @@
 		content: " ";
 		height: 10px;
 		position: absolute;
-		top: -1000px;
+		top: -2000px;
 		width: 1px;
     }
 
@@ -62,20 +67,20 @@
 	    content: " ";
 	    height: 5px;
 	    position: absolute;
-	    top: -1000px;
+	    top: -2000px;
 	    width: 3px;
 	}
 }
 
 @-webkit-keyframes animRain {
-  0%   { transform: translateY(-1000px); }
-  100% { transform: translateY(1000px); }
+  0%   { transform: translateY(0px); }
+  100% { transform: translateY(2000px); }
 }
 @keyframes animRain {
 0% {
-    transform: translateY(-1000px);
+    transform: translateY(0px);
 }
 100% {
-    transform: translateY(1000px);
+    transform: translateY(2000px);
 }
 }
