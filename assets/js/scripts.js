@@ -145,7 +145,6 @@ $(document).ready(function() {
 								scrollDownAmount = 0;
 								$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
 								$(this).prev().addClass('activeSlide');
-								$(this).css("margin-left", "-100%");
 								return 'activeSlide';
 							}
 						})
@@ -162,7 +161,6 @@ $(document).ready(function() {
 									scrollUpAmount = 0;
 									$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
 									$(this).next().addClass('activeSlide');
-									$(this).css("margin-left", "+100%");
 									return 'activeSlide';
 								}
 							})
