@@ -107,7 +107,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="container weatherWrap">
 				<div class="center-block col-md-8">
 						<div class="forecastContent">
-							<?php outputForecast($laterForecast); ?>
+							<?php outputForecast($laterForecast, $night = true); ?>
 						</div>
 				</div>
 			</div>

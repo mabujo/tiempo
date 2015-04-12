@@ -12,7 +12,7 @@ Small project to retrieve and display weather conditions and forecast for a sing
 
 *bootstrap
 
-*weather-icons
+*weather-icons - https://github.com/erikflowers/weather-icons
 
 *jquery
 

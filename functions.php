@@ -148,52 +148,95 @@
 	 * Returns the destination iconset icon name
 	 *
 	 */
-	function mapForecastToIcon($weatherForecast = '')
+	function mapForecastToIcon($weatherForecast = '', $night = false)
 	{
-		if($weatherForecast == 'clear' || $weatherForecast == 'sunny' || $weatherForecast == 'unknown')
+		if ($night == true) 
 		{
-			$weatherIcon = "wi-day-sunny";
+			if($weatherForecast == 'clear' || $weatherForecast == 'unknown')
+			{
+				$weatherIcon = "wi-night-clear";
+			}
+			elseif($weatherForecast == 'mostlycloudy' || $weatherForecast == 'cloudy' || $weatherForecast == 'partlycloudy' )
+			{
+				$weatherIcon = 'wi-night-cloudy';
+			}
+			elseif($weatherForecast == 'chancerain')
+			{
+				$weatherIcon = 'wi-night-rain-mix';
+			}
+			elseif($weatherForecast == 'rain')
+			{
+				$weatherIcon = 'wi-rain';
+			}
+			elseif($weatherForecast == 'fog' || $weatherForecast == 'hazy')
+			{
+				$weatherIcon = 'wi-night-fog';
+			}
+			elseif($weatherForecast == 'tstorms' || $weatherForecast == 'chancetstorms')
+			{
+				$weatherIcon = 'wi-night-thunderstorm';
+			}
+			elseif($weatherForecast == 'sleet' || $weatherForecast == 'chancesleet')
+			{
+				$weatherIcon = 'wi-night-hail';
+			}
+			elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast == 'chanceflurries' )
+			{
+				$weatherIcon = 'wi-night-snow';
+			}
+			// Nondescript
+			else
+			{
+				$weatherIcon = "wi-night-cloudy";
+			}
 		}
-		elseif($weatherForecast == 'mostlysunny')
+		else 
 		{
-			$weatherIcon = 'wi-day-sunny-overcast';
-		}
-		elseif($weatherForecast == 'partlycloudy' || $weatherForecast == 'partlysunny')
-		{
-			$weatherIcon = 'wi-day-cloudy';
-		}
-		elseif($weatherForecast == 'mostlycloudy' || $weatherForecast == 'cloudy')
-		{
-			$weatherIcon = 'wi-cloudy';
-		}
-		elseif($weatherForecast == 'chancerain')
-		{
-			$weatherIcon = 'wi-day-rain-mix';
-		}
-		elseif($weatherForecast == 'rain')
-		{
-			$weatherIcon = 'wi-rain';
-		}
-		elseif($weatherForecast == 'fog' || $weatherForecast == 'hazy')
-		{
-			$weatherIcon = 'wi-day-fog';
-		}
-		elseif($weatherForecast == 'tstorms' || $weatherForecast == 'chancetstorms')
-		{
-			$weatherIcon = 'wi-thunderstorm';
-		}
-		elseif($weatherForecast == 'sleet' || $weatherForecast == 'chancesleet')
-		{
-			$weatherIcon = 'wi-hail';
-		}
-		elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast == 'chanceflurries' )
-		{
-			$weatherIcon = 'wi-day-snow';
-		}
-		// Nondescript
-		else
-		{
-			$weatherIcon = "wi-day-cloudy";
+			if($weatherForecast == 'clear' || $weatherForecast == 'sunny' || $weatherForecast == 'unknown')
+			{
+				$weatherIcon = "wi-day-sunny";
+			}
+			elseif($weatherForecast == 'mostlysunny')
+			{
+				$weatherIcon = 'wi-day-sunny-overcast';
+			}
+			elseif($weatherForecast == 'partlycloudy' || $weatherForecast == 'partlysunny')
+			{
+				$weatherIcon = 'wi-day-cloudy';
+			}
+			elseif($weatherForecast == 'mostlycloudy' || $weatherForecast == 'cloudy')
+			{
+				$weatherIcon = 'wi-cloudy';
+			}
+			elseif($weatherForecast == 'chancerain')
+			{
+				$weatherIcon = 'wi-day-rain-mix';
+			}
+			elseif($weatherForecast == 'rain')
+			{
+				$weatherIcon = 'wi-rain';
+			}
+			elseif($weatherForecast == 'fog' || $weatherForecast == 'hazy')
+			{
+				$weatherIcon = 'wi-day-fog';
+			}
+			elseif($weatherForecast == 'tstorms' || $weatherForecast == 'chancetstorms')
+			{
+				$weatherIcon = 'wi-thunderstorm';
+			}
+			elseif($weatherForecast == 'sleet' || $weatherForecast == 'chancesleet')
+			{
+				$weatherIcon = 'wi-hail';
+			}
+			elseif($weatherForecast == 'snow' || $weatherForecast == 'chancesnow' || $weatherForecast == 'flurries' || $weatherForecast == 'chanceflurries' )
+			{
+				$weatherIcon = 'wi-day-snow';
+			}
+			// Nondescript
+			else
+			{
+				$weatherIcon = "wi-day-cloudy";
+			}
 		}
 
 		return $weatherIcon;
@@ -227,12 +270,12 @@
 	 * Returns HTML string
 	 *
 	 */
-	function outputForecast($forecast = '')
+	function outputForecast($forecast = '', $night = false)
 	{
 		if (!empty($forecast))
 		{
 			echo '	<div class="weatherIcon">
-						<i class="wi ' . mapForecastToIcon($forecast->icon) . '"></i>
+						<i class="wi ' . mapForecastToIcon($forecast->icon, $night) . '"></i>
 					</div>
 					<div class="weatherCondition">
 						' .  $forecast->conditions . '
