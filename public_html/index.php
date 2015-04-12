@@ -85,7 +85,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		  </div>
 		</nav>
 		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?> <?php echo weatherGeneral($weatherIcon); ?> ">
-			<div class="container">
+			<div class="container weatherWrap">
 				<div class="row">
 					<div class="center-block col-md-8">
 						<div class="forecastContent">
@@ -104,7 +104,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 		</div>
 		<div id="later" class="section bgNight <?php echo weatherGeneral(mapForecastToIcon($laterForecast->icon)); ?>">
-			<div class="container">
+			<div class="container weatherWrap">
 				<div class="center-block col-md-8">
 						<div class="forecastContent">
 							<?php outputForecast($laterForecast); ?>
@@ -114,7 +114,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="timeLabel">Later</div>
 		</div>
 		<div id="tomorrow" class="section <?php echo weatherGeneral(mapForecastToIcon($tomorrowForecast->icon)); ?>">
-			<div class="container">
+			<div class="container weatherWrap">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
 							<?php outputForecast($tomorrowForecast); ?>
@@ -124,7 +124,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="timeLabel">Tomorrow</div>
 		</div>
 		<div id="dayTwo" class="section <?php echo weatherGeneral(mapForecastToIcon($dayTwoForecast->icon)); ?>" style="background-color:#666;">
-			<div class="container">
+			<div class="container weatherWrap">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
 						<?php outputForecast($dayTwoForecast); ?>
@@ -134,7 +134,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
 		</div>
 		<div id="dayThree" class="section <?php echo weatherGeneral(mapForecastToIcon($dayThreeForecast->icon)); ?>" style="background-color:#888;">
-			<div class="container">
+			<div class="container weatherWrap">
 				<div class="center-block col-md-8">
 					<div class="forecastContent">
 						<?php outputForecast($dayThreeForecast); ?>

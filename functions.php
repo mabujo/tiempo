@@ -214,6 +214,9 @@
 		elseif ($weatherIcon === 'wi-day-rain-mix' || $weatherIcon === 'wi-rain' ) {
 			$class = 'rain';
 		}
+		else {
+			$class = 'clear';
+		}
 
 		return $class;
 	}

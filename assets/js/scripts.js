@@ -82,7 +82,7 @@ $(document).ready(function() {
 	// and animation divs for weather
 	$( ".bgNight" ).append( '<div id="stars"></div><div id="stars3"></div>' );
 	$( ".rain" ).append( '<div id="rainDrops"></div><div id="rainDrops2"></div><div id="rainDrops3"></div>' );
-	$( ".cloud" ).append( '<div id="cloud1"></div><div id="cloud2"></div><div id="cloud3"></div>' );
+	$( ".cloud" ).append( '<div id="cloud1"></div><div id="cloud2"></div><div id="cloud3"></div><div id="cloud6"></div>' );
 
 	// init scroll vars
 	var scrollUpAmount = 0;
@@ -145,6 +145,7 @@ $(document).ready(function() {
 								scrollDownAmount = 0;
 								$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
 								$(this).prev().addClass('activeSlide');
+								$(this).css("margin-left", "-100%");
 								return 'activeSlide';
 							}
 						})
@@ -161,6 +162,7 @@ $(document).ready(function() {
 									scrollUpAmount = 0;
 									$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
 									$(this).next().addClass('activeSlide');
+									$(this).css("margin-left", "+100%");
 									return 'activeSlide';
 								}
 							})

@@ -1,17 +1,3 @@
-@randomNum: `Math.ceil(Math.random() * 2000)`;
-
-@random100: `Math.ceil(Math.random() * 100)`;
-
-@random3: `Math.ceil(Math.random() * 3) -1`;
-
-@dropColour: #ddd - @random100;
-
-@skew: `Math.ceil(Math.random() * 10)`;
-
-@skewStart: @skew;
-@skewFinish: @skew + 10;
-
-
 .drops(@counter) when (@counter > 0) {
   .drops((@counter - 1));
   box-shadow+: ~"@{randomNum}px" ~"@{randomNum}px" ~"@{random3}px" ~"@{random3}px" @dropColour;
