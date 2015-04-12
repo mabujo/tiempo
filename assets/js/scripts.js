@@ -140,9 +140,13 @@ $(document).ready(function() {
 						$('.activeSlide').removeClass(function(){
 							if($(this).prev('.section').length > 0)
 							{
+								// set location
 								window.location.hash = $(this).prev().attr('id');
+
+								// reset scroll counts
 								scrollUpAmount = 0;
 								scrollDownAmount = 0;
+
 								$(this).velocity({ "margin-left": "+=100%" }, { duration: 800, easing: "easeOutBack" } );
 								$(this).prev().addClass('activeSlide');
 								return 'activeSlide';
@@ -153,17 +157,34 @@ $(document).ready(function() {
 					// if scrolled down
 					if(scrollDownAmount > 2)
 					{
-							$('.activeSlide').removeClass(function(){
-								if($(this).next('.section').length > 0)
-								{
-									window.location.hash = $(this).next().attr('id');
-									scrollDownAmount = 0;
-									scrollUpAmount = 0;
-									$(this).next().velocity({ "margin-left": "-=100%" }, { duration: 800, easing: "easeInBack" } );
-									$(this).next().addClass('activeSlide');
-									return 'activeSlide';
-								}
-							})
+						// remove activeSlide class from current slide
+						$('.activeSlide').removeClass(function()
+						{
+							// if there is another slide to scroll to
+							if($(this).next('.section').length > 0)
+							{
+								// set the location hash
+								window.location.hash = $(this).next().attr('id');
+
+								// reset scroll counters
+								scrollDownAmount = 0;
+								scrollUpAmount = 0;
+
+								// bring in new slide
+								$(this).next().velocity({ "margin-left": "0" }, {
+									duration: 800,
+									easing: "easeInBack",
+									complete: function() {
+										// when the animation is finished,
+										// slide current slide left
+										$(this).prev('.section').css("margin-left", "-100%");
+										$(this).addClass('activeSlide');
+									}
+								} );
+
+								return 'activeSlide';
+							}
+						})
 
 					}
 
