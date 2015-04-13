@@ -143,6 +143,11 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div class="timeLabel"><?php echo $dayThreeForecast->date->weekday; ?></div>
 		</div>
+		<div id="about" class="section">
+			<div>
+				<h1>About Marbella Weather</h1>
+			</div>
+		</div>
 		<footer class="footer">
 			<div class="nav">
 				<ul class="slideNav center-block">
