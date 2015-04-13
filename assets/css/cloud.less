@@ -32,19 +32,19 @@
 }
 
 #cloud1 {
-	animation: ~"@{random100}s" linear 0s normal none infinite running animCloud;
+	.animation(animCloud, ~"@{random100}s", linear, infinite);
 	.cloudImg1;
 }
 #cloud2 {
-	animation: ~"@{random100}s" linear 0s normal none infinite running animCloud;
+	.animation(animCloud, ~"@{random100}s", linear, infinite);
 	.cloudImg2;
 }
 #cloud3 {
-	animation: ~"@{random100}s" linear 0s normal none infinite running animCloud;
+	.animation(animCloud, ~"@{random100}s", linear, infinite);
 	.cloudImg3;
 }
 #cloud6 {
-	animation: ~"@{random100}s" linear 0s normal none infinite running animCloud;
+	.animation(animCloud, ~"@{random100}s", linear, infinite);
 	.cloudImg6;
 }
 .cloudAfter { content: " ";	.flipX; }
@@ -74,11 +74,13 @@
 }
 
 
-@keyframes animCloud {
-    0% {
-        margin-left: ~"-@{random100}px";
-    }
-    100% {
-        margin-left: 100%;
-    }
+@-webkit-keyframes animCloud { .cloudFrames; }
+@-moz-keyframes animCloud { .cloudFrames; }
+@-ms-keyframes animCloud { .cloudFrames; }
+@-o-keyframes animCloud { .cloudFrames; }
+@keyframes animCloud { .cloudFrames; }
+
+.cloudFrames {
+	0%   { margin-left: ~"-@{random100}px"; }
+	100% { margin-left: 100%; }
 }

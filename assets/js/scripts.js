@@ -147,21 +147,12 @@ $(document).ready(function() {
 								scrollUpAmount = 0;
 								scrollDownAmount = 0;
 
-								console.log("this : " + $(this).attr('id'));
-								console.log("this prev : " + $(this).prev('.section').attr('id'));
-								console.log("this next : " + $(this).next('.section').attr('id'));
-
 								// bring in new slide
-								$(this).prev('.section').velocity({ "margin-left": "0" }, {
-									duration: 800,
-									easing: "easeInBack",
-									complete: function() {
-										// when the animation is finished,
-										// slide current slide left
-										$(this).css("margin-left", "+100%");
-										$(this).addClass('activeSlide');
-									}
-								} );
+								$(this).prev('.section').velocity({"margin-left": "0"}, {duration: 300, easing: "easeInBack" });
+								// slide current slide right
+								$(this).velocity({"margin-left": "+100%"}, {duration: 300, easing: "easeInBack" });
+								// add active slide to left slide
+								$(this).prev('.section').addClass('activeSlide');
 
 								return 'activeSlide';
 							}

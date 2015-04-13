@@ -64,17 +64,13 @@
 	}
 }
 
+@-webkit-keyframes animRain { .rainFrames; }
+@-moz-keyframes animRain { .rainFrames; }
+@-ms-keyframes animRain { .rainFrames; }
+@-o-keyframes animRain { .rainFrames; }
+@keyframes animRain { .rainFrames; }
 
-
-@-webkit-keyframes animRain {
-  0%   { transform: translateY(0px) skew(~"@{skewStart}deg"); }
-  100% { transform: translateY(2000px) skew(~"@{skewFinish}deg"); }
-}
-@keyframes animRain {
-0% {
-    transform: translateY(0px) skew(~"@{skewStart}deg");
-}
-100% {
-    transform: translateY(2000px) skew(~"@{skewFinish}deg");
-}
+.rainFrames {
+	0%   { transform: translateY(0px) skew(~"@{skewStart}deg"); }
+	100% { transform: translateY(2000px) skew(~"@{skewFinish}deg"); }
 }
