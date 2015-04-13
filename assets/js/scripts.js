@@ -154,6 +154,12 @@ $(document).ready(function() {
 								// add active slide to left slide
 								$(this).prev('.section').addClass('activeSlide');
 
+								// remove other active class from bottom button
+								$('.slideNav li a').removeClass('activeButton');
+
+								// make clicked slide button active
+								$( 'a[href*="' + $(this).prev().attr('id') + '"]' ).addClass('activeButton');
+
 								return 'activeSlide';
 							}
 						})
@@ -184,6 +190,11 @@ $(document).ready(function() {
 										// slide current slide left
 										$(this).prev('.section').css("margin-left", "-100%");
 										$(this).addClass('activeSlide');
+										// remove other active class from bottom button
+										$('.slideNav li a').removeClass('activeButton');
+
+										// make clicked slide button active
+										$( 'a[href*="' + $(this).attr('id') + '"]' ).addClass('activeButton');
 									}
 								} );
 

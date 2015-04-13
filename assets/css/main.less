@@ -32,6 +32,13 @@
 	animation:     @name @duration @delay @ease;
 }
 
+.transition (@transition) {
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+}
+
 // main stylesheet
 
 //testing
@@ -63,7 +70,7 @@ h1 { margin: 10px 0; }
 
 .slideNav { width: 100%; padding-left: 0; }
 .slideNav li { list-style: none; display: inline-block; text-align: center; width: 19%; margin: 0; }
-.slideNav li a { padding: 8px 0; width: 100%; margin: 10px 0; }
+.slideNav li a { padding: 8px 0; width: 100%; margin: 10px 0; .transition(all 0.8s linear;); }
 .activeButton { background-color: @green !important; }
 
 .timeLabel { position: absolute; right: 10px; top:10px; padding: 1em; background-color: @green; color: #fcfcfc; }
