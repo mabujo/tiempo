@@ -7,7 +7,7 @@ $(".forecastContent").fitText(0.9, { minFontSize: '40px'  });
 // array of our slides
 var slideArray = [ "now", "later", "tomorrow", "dayTwo", "dayThree" ];
 
-var pageArray = ["about", "contact"];
+var pageArray = ["weather", "about", "contact"];
 
 // first doc ready, for initial load stuff
 $(document).ready(function()
@@ -70,12 +70,14 @@ $(document).ready(function()
 			// make first slide active
 			$( ".section:first-of-type" ).addClass( "activeSlide" );
 		}
-	}
+	} 
 	// no slide/#hash specified
 	else 
 	{
 		// make first slide active
 		$( ".section:first-of-type" ).addClass( "activeSlide" );
+		// make first pane active
+		$( ".pane:first-of-type" ).addClass( "activePane" );
 	}
 });
 

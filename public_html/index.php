@@ -84,81 +84,83 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div><!--/.nav-collapse -->
 		  </div>
 		</nav>
-		<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?> <?php echo weatherGeneral($weatherIcon); ?> ">
-			<div class="container weatherWrap">
-				<div class="row">
+		<div id="weather" class="pane">
+			<div id="now" class="section <?php if(spainIsDay()) { echo "bgDay"; } else { echo "bgNight"; } ?> <?php echo weatherGeneral($weatherIcon); ?> ">
+				<div class="container weatherWrap">
+					<div class="row">
+						<div class="center-block col-md-8">
+							<div class="forecastContent">
+								<div class="weatherIcon">
+									<i class="wi <?php echo $weatherIcon; ?>"></i>
+								</div>
+								<div class="weatherCondition">
+									<?php echo $weatherCondition; ?>
+								</div>
+								<div class="currentTemperature">
+									<?php echo $currentTemperature . "°C"; ?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="later" class="section bgNight <?php echo weatherGeneral(mapForecastToIcon($laterForecast->icon)); ?>">
+				<div class="container weatherWrap">
+					<div class="center-block col-md-8">
+							<div class="forecastContent">
+								<?php outputForecast($laterForecast, $night = true); ?>
+							</div>
+					</div>
+				</div>
+				<div class="timeLabel">Later</div>
+			</div>
+			<div id="tomorrow" class="section <?php echo weatherGeneral(mapForecastToIcon($tomorrowForecast->icon)); ?>">
+				<div class="container weatherWrap">
 					<div class="center-block col-md-8">
 						<div class="forecastContent">
-							<div class="weatherIcon">
-								<i class="wi <?php echo $weatherIcon; ?>"></i>
-							</div>
-							<div class="weatherCondition">
-								<?php echo $weatherCondition; ?>
-							</div>
-							<div class="currentTemperature">
-								<?php echo $currentTemperature . "°C"; ?>
-							</div>
+								<?php outputForecast($tomorrowForecast); ?>
 						</div>
 					</div>
 				</div>
+				<div class="timeLabel">Tomorrow</div>
 			</div>
-		</div>
-		<div id="later" class="section bgNight <?php echo weatherGeneral(mapForecastToIcon($laterForecast->icon)); ?>">
-			<div class="container weatherWrap">
-				<div class="center-block col-md-8">
+			<div id="dayTwo" class="section <?php echo weatherGeneral(mapForecastToIcon($dayTwoForecast->icon)); ?>" style="background-color:#666;">
+				<div class="container weatherWrap">
+					<div class="center-block col-md-8">
 						<div class="forecastContent">
-							<?php outputForecast($laterForecast, $night = true); ?>
+							<?php outputForecast($dayTwoForecast); ?>
 						</div>
-				</div>
-			</div>
-			<div class="timeLabel">Later</div>
-		</div>
-		<div id="tomorrow" class="section <?php echo weatherGeneral(mapForecastToIcon($tomorrowForecast->icon)); ?>">
-			<div class="container weatherWrap">
-				<div class="center-block col-md-8">
-					<div class="forecastContent">
-							<?php outputForecast($tomorrowForecast); ?>
 					</div>
 				</div>
+				<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
 			</div>
-			<div class="timeLabel">Tomorrow</div>
-		</div>
-		<div id="dayTwo" class="section <?php echo weatherGeneral(mapForecastToIcon($dayTwoForecast->icon)); ?>" style="background-color:#666;">
-			<div class="container weatherWrap">
-				<div class="center-block col-md-8">
-					<div class="forecastContent">
-						<?php outputForecast($dayTwoForecast); ?>
+			<div id="dayThree" class="section <?php echo weatherGeneral(mapForecastToIcon($dayThreeForecast->icon)); ?>" style="background-color:#888;">
+				<div class="container weatherWrap">
+					<div class="center-block col-md-8">
+						<div class="forecastContent">
+							<?php outputForecast($dayThreeForecast); ?>
+						</div>
 					</div>
 				</div>
+				<div class="timeLabel"><?php echo $dayThreeForecast->date->weekday; ?></div>
 			</div>
-			<div class="timeLabel"><?php echo $dayTwoForecast->date->weekday; ?></div>
-		</div>
-		<div id="dayThree" class="section <?php echo weatherGeneral(mapForecastToIcon($dayThreeForecast->icon)); ?>" style="background-color:#888;">
-			<div class="container weatherWrap">
-				<div class="center-block col-md-8">
-					<div class="forecastContent">
-						<?php outputForecast($dayThreeForecast); ?>
-					</div>
+			<footer class="footer">
+				<div class="nav">
+					<ul class="slideNav center-block">
+						<li><a href="#now" class="btn btn-default">Now</a></li>
+						<li><a href="#later" class="btn btn-default">later</a></li>
+						<li><a href="#tomorrow" class="btn btn-default">tomorrow</a></li>
+						<li><a href="#dayTwo" class="btn btn-default"><?php echo $dayTwoForecast->date->weekday; ?></a></li>
+						<li><a href="#dayThree" class="btn btn-default"><?php echo $dayThreeForecast->date->weekday; ?></a></li>
+					</ul>
 				</div>
-			</div>
-			<div class="timeLabel"><?php echo $dayThreeForecast->date->weekday; ?></div>
+			</footer>
 		</div>
-		<div id="about" class="section">
+		<div id="about" class="pane">
 			<div>
 				<h1>About Marbella Weather</h1>
 			</div>
 		</div>
-		<footer class="footer">
-			<div class="nav">
-				<ul class="slideNav center-block">
-					<li><a href="#now" class="btn btn-default">Now</a></li>
-					<li><a href="#later" class="btn btn-default">later</a></li>
-					<li><a href="#tomorrow" class="btn btn-default">tomorrow</a></li>
-					<li><a href="#dayTwo" class="btn btn-default"><?php echo $dayTwoForecast->date->weekday; ?></a></li>
-					<li><a href="#dayThree" class="btn btn-default"><?php echo $dayThreeForecast->date->weekday; ?></a></li>
-				</ul>
-			</div>
-		</footer>
 	</div>
 	<script src="assets/js/scripts.js"></script>
     </body>
