@@ -157,8 +157,13 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</footer>
 		</div>
 		<div id="about" class="pane">
-			<div>
+			<div class="pageContent">
 				<h1>About Marbella Weather</h1>
+			</div>
+		</div>
+		<div id="contact" class="pane">
+			<div class="pageContent">
+				<h1>Contact us</h1>
 			</div>
 		</div>
 	</div>

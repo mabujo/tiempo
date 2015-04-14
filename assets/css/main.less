@@ -49,7 +49,7 @@
 #header {
   color: @light-blue;
 }
-body, #fullpage, .section, .pane { height: 100%; width: 100%; overflow:hidden; position:fixed; display: block; }
+body, #fullpage, .section, .pane, .pageContent { height: 100%; width: 100%; overflow:hidden; position:fixed; display: block; }
 
 .center-block { float: none; }
 
@@ -64,7 +64,9 @@ body, #fullpage, .section, .pane { height: 100%; width: 100%; overflow:hidden; p
 .pane { margin-top: 100%; }
 .activeSlide {  }
 #now { margin-left:0; }
-#weather { margin-top: 0; } 
+#weather { margin-top: 0; }
+
+.pageContent { top: 50px; margin-left: 0; }
 
 .forecastContent { text-align:center; margin-top: 2em; z-index: 3; }
 
