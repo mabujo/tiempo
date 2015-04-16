@@ -7,23 +7,23 @@ $(".forecastContent").fitText(0.9, { minFontSize: '40px'  });
 // array of our slides
 var slideArray = [ "now", "later", "tomorrow", "dayTwo", "dayThree" ];
 
-var paneArray = ["weather", "about", "contact"];
+var pageArray = ["weather", "about", "contact"];
 
 // first doc ready, for initial load stuff
 $(document).ready(function()
 {
 	// if we have a specified slide
-	if(window.location.hash)
+	if(window.location.hash) 
 	{
 		// get the slide from the location hash
 		var slideTo = window.location.hash.substr(1)
-		var thisSlideIndex = false;
+		var thisSlideIndex = false;		
 
 		// if the location hash is in the slide array
-		if($.inArray(slideTo, slideArray) != -1)
+		if($.inArray(slideTo, slideArray) != -1) 
 		{
 			// go through each slide in array
-			$.each(slideArray, function( index, value )
+			$.each(slideArray, function( index, value ) 
 			{
 				// find which slide we are
 				if (value === slideTo) {
@@ -32,9 +32,9 @@ $(document).ready(function()
 			});
 
 			// if we found our slide
-			if (thisSlideIndex != false )
+			if (thisSlideIndex != false ) 
 			{
-				$.each(slideArray, function( index, value )
+				$.each(slideArray, function( index, value ) 
 				{
 					// set slides to the left to have margin-left -100%
 					if(index < thisSlideIndex)
@@ -42,7 +42,7 @@ $(document).ready(function()
 						$("#"+value).css("margin-left", "-100%");
 					}
 					// set slides to the right of this slide to have margin-left: +100%
-					else if (index > thisSlideIndex)
+					else if (index > thisSlideIndex) 
 					{
 						$("#"+value).css("margin-left", "+100%");
 					}
@@ -59,51 +59,20 @@ $(document).ready(function()
 				});
 			}
 		}
-		// else if is a pane
-		else if ($.inArray(slideTo, paneArray) != -1)
+		// else if is a page
+		else if ($.inArray(slideTo, pageArray) != -1) 
 		{
-			// go through each pane in array
-			$.each(paneArray, function( index, value )
-			{
-				// find which pane we are
-				if (value === slideTo) {
-					thisPaneIndex = index;
-				}
-			});
-			// if we found our pane
-			if (thisPaneIndex != false )
-			{
-				$.each(paneArray, function( index, value )
-				{
-					// set slides above to have margin-top -100%
-					if(index < thisPaneIndex)
-					{
-						$("#"+value).css("margin-top", "-100%");
-					}
-					// set slides to the right of this pane to have margin-left: +100%
-					else if (index > thisPaneIndex)
-					{
-						$("#"+value).css("margin-top", "+100%");
-					}
-					// set this pane to have margin left 0
-					else if (index == thisPaneIndex)
-					{
-						$("#"+value).css("margin-top", "0");
-						$("#"+value).addClass('activePane');
-					}
-				});
-			}
-
+			console.log("is in page array");
 		}
 		// is an unrecognised hash
-		else
+		else 
 		{
 			// make first slide active
 			$( ".section:first-of-type" ).addClass( "activeSlide" );
 		}
-	}
+	} 
 	// no slide/#hash specified
-	else
+	else 
 	{
 		// make first slide active
 		$( ".section:first-of-type" ).addClass( "activeSlide" );
@@ -115,9 +84,7 @@ $(document).ready(function()
 // second ready function, for everything else
 $(document).ready(function()
 {
-	// page nav buttons
-
-	// weather nav buttons
+	// nav buttons
 	$( '.slideNav li a' ).click(function() {
 
 		// current and next slide divs
@@ -125,7 +92,7 @@ $(document).ready(function()
 		var clickedSlide = $(this).attr('href');
 
 		// determine current and clicked slide
-		$.each(slideArray, function( index, value )
+		$.each(slideArray, function( index, value ) 
 		{
 			// current slide index and id
  			if (value === currentSlide)
@@ -185,9 +152,9 @@ $(document).ready(function()
 
 	// add stars to night slides
 	// and animation divs for weather
-	//$( ".bgNight" ).append( '<div id="stars"></div><div id="stars3"></div>' );
-	//$( ".rain" ).append( '<div id="rainDrops"></div><div id="rainDrops2"></div><div id="rainDrops3"></div>' );
-	//$( ".cloud" ).append( '<div id="cloud1"></div><div id="cloud2"></div><div id="cloud3"></div><div id="cloud6"></div>' );
+	$( ".bgNight" ).append( '<div id="stars"></div><div id="stars3"></div>' );
+	$( ".rain" ).append( '<div id="rainDrops"></div><div id="rainDrops2"></div><div id="rainDrops3"></div>' );
+	$( ".cloud" ).append( '<div id="cloud1"></div><div id="cloud2"></div><div id="cloud3"></div><div id="cloud6"></div>' );
 
 	// init scroll vars
 	var scrollUpAmount = 0;
