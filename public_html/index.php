@@ -78,8 +78,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			<div id="navbar" class="navbar-collapse collapse">
 			  <ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#about">About</a></li>
-				<li><a href="#contact">Contact</a></li>
+				<li><a href="#about" data-toggle="modal" data-target="#aboutModal">About</a></li>
 			  </ul>
 			</div><!--/.nav-collapse -->
 		  </div>
@@ -156,9 +155,20 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 				</div>
 			</footer>
 		</div>
-		<div id="about" class="pane">
-			<div>
-				<h1>About Marbella Weather</h1>
+	</div>
+	<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+					<h1>About Marbella Weather</h1>
+				</div>
+				<div class="modal-body">
+					<h3>Modal Body</h3>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -7,23 +7,21 @@ $(".forecastContent").fitText(0.9, { minFontSize: '40px'  });
 // array of our slides
 var slideArray = [ "now", "later", "tomorrow", "dayTwo", "dayThree" ];
 
-var pageArray = ["weather", "about", "contact"];
-
 // first doc ready, for initial load stuff
 $(document).ready(function()
 {
 	// if we have a specified slide
-	if(window.location.hash) 
+	if(window.location.hash)
 	{
 		// get the slide from the location hash
 		var slideTo = window.location.hash.substr(1)
-		var thisSlideIndex = false;		
+		var thisSlideIndex = false;
 
 		// if the location hash is in the slide array
-		if($.inArray(slideTo, slideArray) != -1) 
+		if($.inArray(slideTo, slideArray) != -1)
 		{
 			// go through each slide in array
-			$.each(slideArray, function( index, value ) 
+			$.each(slideArray, function( index, value )
 			{
 				// find which slide we are
 				if (value === slideTo) {
@@ -32,9 +30,9 @@ $(document).ready(function()
 			});
 
 			// if we found our slide
-			if (thisSlideIndex != false ) 
+			if (thisSlideIndex != false )
 			{
-				$.each(slideArray, function( index, value ) 
+				$.each(slideArray, function( index, value )
 				{
 					// set slides to the left to have margin-left -100%
 					if(index < thisSlideIndex)
@@ -42,7 +40,7 @@ $(document).ready(function()
 						$("#"+value).css("margin-left", "-100%");
 					}
 					// set slides to the right of this slide to have margin-left: +100%
-					else if (index > thisSlideIndex) 
+					else if (index > thisSlideIndex)
 					{
 						$("#"+value).css("margin-left", "+100%");
 					}
@@ -60,24 +58,22 @@ $(document).ready(function()
 			}
 		}
 		// else if is a page
-		else if ($.inArray(slideTo, pageArray) != -1) 
+		else if (slideTo === 'about')
 		{
-			console.log("is in page array");
+			console.log("about page");
 		}
 		// is an unrecognised hash
-		else 
+		else
 		{
 			// make first slide active
 			$( ".section:first-of-type" ).addClass( "activeSlide" );
 		}
-	} 
+	}
 	// no slide/#hash specified
-	else 
+	else
 	{
 		// make first slide active
 		$( ".section:first-of-type" ).addClass( "activeSlide" );
-		// make first pane active
-		$( ".pane:first-of-type" ).addClass( "activePane" );
 	}
 });
 
@@ -92,7 +88,7 @@ $(document).ready(function()
 		var clickedSlide = $(this).attr('href');
 
 		// determine current and clicked slide
-		$.each(slideArray, function( index, value ) 
+		$.each(slideArray, function( index, value )
 		{
 			// current slide index and id
  			if (value === currentSlide)

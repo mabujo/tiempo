@@ -27,10 +27,22 @@ module.exports = function(grunt) {
               compress: true,  //minifying the result
             },
             files: {
-              //compiling frontend.less into frontend.css
+              //compiling css
               "./public_html/assets/css/style.css": ["./assets/css/main.less"],
             }
         }
+    },
+    autoprefixer: {
+      options: {
+        browsers: ['last 3 versions', '> 5%', 'ie 8', 'ie 7']
+      },
+      single_file: {
+        options: {
+          // Target-specific options go here.
+        },
+          src: './public_html/assets/css/style.css',
+          dest: './public_html/assets/css/style.css'
+      },
     },
     concat: {
       options: {
@@ -60,6 +72,16 @@ module.exports = function(grunt) {
         }
       },
     },
+    cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
+      target: {
+        files: {
+          "./public_html/assets/css/style.css": ['./public_html/assets/css/style.css']
+        }
+      }
+    },
     watch: {
         js_frontend: {
           files: [
@@ -75,7 +97,7 @@ module.exports = function(grunt) {
         },
         less: {
           files: ['./assets/css/*.less'],  //watched files
-          tasks: ['less'],                          //tasks to run
+          tasks: ['less', 'autoprefixer', 'cssmin'],                          //tasks to run
           options: {
             livereload: true                        //reloads the browser
           }
@@ -93,6 +115,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-autoprefixer');
 
   // Task definition
   grunt.registerTask('default', ['watch']);
