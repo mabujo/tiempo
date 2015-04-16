@@ -1,14 +1,7 @@
 <?php
 //init
-require '../vendor/autoload.php';
 require '../wunderground/Wunderground.php';
 require '../functions.php';
-
-//slim init
-$tiempo = new \Slim\Slim(array(
-	'debug' => true,
-	'log.enabled' => true
-));
 
 //weather provider object
 $weather = new Wunderground("bdff1e0a39d8035f", "en");
