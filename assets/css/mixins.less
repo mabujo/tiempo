@@ -1,0 +1,42 @@
+@randomNum: `Math.ceil(Math.random() * 2000)`;
+@random100: `Math.ceil(Math.random() * 100)`;
+@random3: `Math.ceil(Math.random() * 3) -1`;
+@dropColour: #ddd - @random100;
+@skew: `Math.ceil(Math.random() * 10)`;
+@skewStart: @skew;
+@skewFinish: @skew + 10;
+
+.flipX {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
+}
+.flipY {
+	-moz-transform: scaleY(-1);
+	-o-transform: scaleY(-1);
+	-webkit-transform: scaleY(-1);
+	transform: scaleY(-1);
+	filter: FlipV;
+	-ms-filter: "FlipV";
+}
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+	-webkit-animation: @name @duration @delay @ease;
+	-moz-animation:    @name @duration @delay @ease;
+	-ms-animation:     @name @duration @delay @ease;
+	animation:     @name @duration @delay @ease;
+}
+
+.transition (@transition) {
+	-webkit-transition: @transition;
+	-moz-transition:    @transition;
+	-ms-transition:     @transition;
+	-o-transition:      @transition;
+}
+
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+@green: #0f9d58;

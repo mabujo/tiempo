@@ -73,7 +73,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 				<li class="active"><a href="#">Home</a></li>
 				<li><a href="#about" data-toggle="modal" data-target="#aboutModal">About</a></li>
 			  </ul>
-			</div><!--/.nav-collapse -->
+			</div>
 		  </div>
 		</nav>
 		<div id="weather" class="pane">
@@ -157,7 +157,11 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 					<h1>About Marbella Weather</h1>
 				</div>
 				<div class="modal-body">
-					<h3>Modal Body</h3>
+					<p>We made this site to provide a simple and fast way to view the current weather conditions and a three day weather forecast for Marbella.</p>
+					<p>You can view the weather for the different days by using the tabs at the bottom of the page, by scrolling with your mouse, or swiping (on mobile and tablets).</p>
+					<h3>Techy stuff</h3>
+					<p>The site is also a fun way to show off some interesting modern web design techniques. With the exception of the cloud textures, no images are used, and all of the animations on the site are made using only CSS and a little JavaScript.</p>
+					<p>The weather information is updated frequently using the <a href="http://www.wunderground.com/weather/api/" target="_blank">wunderground api</a>. The site is <a href="https://github.com/mabujo/tiempo" target="_blank">open source</a>, and was made by <a href="http://mabujo.com">mabujo, a Marbella web design company</a>.</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
