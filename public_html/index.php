@@ -1,4 +1,7 @@
 <?php
+//set time
+date_default_timezone_set("Europe/Madrid");
+
 //init
 require '../wunderground/Wunderground.php';
 require '../functions.php';
@@ -70,7 +73,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="http://marbellaweather.com/">Home</a></li>
 				<li><a href="#about" data-toggle="modal" data-target="#aboutModal">About</a></li>
 			  </ul>
 			</div>
