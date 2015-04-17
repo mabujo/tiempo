@@ -179,6 +179,6 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</div>
 		</div>
 	</div>
-	<script src="http://doyle.mabujo.com/tiempo/js/scripts.js"></script>
+	<script src="http://cdn.marbellaweather.com/js/scripts.js"></script>
 	</body>
 </html>
