@@ -25,8 +25,6 @@ $weatherCurrent = $weather->getCurrentWeather($city, $country);
 //get forecast
 $weatherForecast = $weather->getForecast($city, $country);
 
-mapForecastToIcon($weatherForecast->forecast->simpleforecast->forecastday['0']->icon);
-
 //forecast for later
 $laterForecast = $weatherForecast->forecast->simpleforecast->forecastday['0'];
 //tomorrow's forecast
@@ -35,8 +33,6 @@ $tomorrowForecast = $weatherForecast->forecast->simpleforecast->forecastday['1']
 $dayTwoForecast = $weatherForecast->forecast->simpleforecast->forecastday['2'];
 //the day after the day after...
 $dayThreeForecast = $weatherForecast->forecast->simpleforecast->forecastday['3'];
-
-//var_dump($laterForecast);
 
 //temperature
 $currentTemperature = $weatherCurrent->current_observation->temp_c;
@@ -163,7 +159,7 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 			</footer>
 		</div>
 	</div>
-	<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+	<div id="aboutModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="aboutModal" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
