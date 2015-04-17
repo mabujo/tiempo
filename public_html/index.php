@@ -5,6 +5,8 @@ date_default_timezone_set("Europe/Madrid");
 //init
 require '../wunderground/Wunderground.php';
 require '../functions.php';
+//chrome edge header
+header('X-UA-Compatible: IE=edge,chrome=1');
 
 //weather provider object
 $weather = new Wunderground("bdff1e0a39d8035f", "en");
@@ -50,15 +52,14 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<head>
+		<meta charset="utf-8">
 		<title>Marbella Weather</title>
-        <meta name="description" content="Marbella current weather conditions and 3 day forecast">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Marbella current weather conditions and 3 day forecast">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="assets/css/style.css">
-    </head>
-    <body>
+	</head>
+	<body>
 	<script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -183,5 +184,5 @@ $weatherIcon = mapWeatherToIcon($weatherCondition);
 		</div>
 	</div>
 	<script src="http://doyle.mabujo.com/tiempo/js/scripts.js"></script>
-    </body>
+	</body>
 </html>
